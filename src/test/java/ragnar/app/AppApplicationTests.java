@@ -1,10 +1,10 @@
-package dec.api;
+package ragnar.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class AppApplicationTests {
 
 	@Test
 	void contextLoads() {
