@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EnderecoExibicaoDTO {
+public class EnderecoDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

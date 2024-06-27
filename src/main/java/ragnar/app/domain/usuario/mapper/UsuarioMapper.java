@@ -1,4 +1,4 @@
-package ragnar.app.domain.usuario.dto.mapper;
+package ragnar.app.domain.usuario.mapper;
 
 import ragnar.app.domain.usuario.Usuario;
 import ragnar.app.domain.usuario.dto.UsuarioCriacaoDTO;

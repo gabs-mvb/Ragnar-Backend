@@ -12,15 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import ragnar.app.domain.usuario.Usuario;
 import ragnar.app.domain.usuario.dto.*;
-import ragnar.app.domain.usuario.dto.mapper.UsuarioMapper;
+import ragnar.app.domain.usuario.mapper.UsuarioMapper;
 import ragnar.app.domain.usuario.repository.UsuarioRepository;
 import ragnar.app.service.usuario.configuration.security.jwt.GerenciadorTokenJwt;
 import ragnar.app.utils.enums.PermissaoEnum;
 import ragnar.app.utils.enums.StatusEnum;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

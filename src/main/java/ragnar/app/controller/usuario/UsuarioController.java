@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ragnar.app.domain.usuario.dto.*;
-import ragnar.app.domain.usuario.dto.mapper.UsuarioMapper;
+import ragnar.app.domain.usuario.mapper.UsuarioMapper;
 import ragnar.app.service.usuario.UsuarioService;
 import ragnar.app.utils.enums.PermissaoEnum;
 
