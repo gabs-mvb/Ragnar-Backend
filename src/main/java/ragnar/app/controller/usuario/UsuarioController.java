@@ -62,8 +62,8 @@ public class UsuarioController {
     }
 
     @PutMapping("/permissionar/{idUsuario}")
-    public ResponseEntity<UsuarioDTO> permissionarUsuarioAdministrador(@PathVariable int idUsuario, @RequestBody PermissaoEnum permissaoEnum) {
-        return ResponseEntity.ok(UsuarioMapper.toDTO(usuarioService.permissionarUsuario(idUsuario, permissaoEnum)));
+    public ResponseEntity<UsuarioDTO> permissionarUsuarioAdministrador(@PathVariable int idUsuario, @RequestParam String permissao) {
+        return ResponseEntity.ok(UsuarioMapper.toDTO(usuarioService.permissionarUsuario(idUsuario, permissao)));
     }
 
 

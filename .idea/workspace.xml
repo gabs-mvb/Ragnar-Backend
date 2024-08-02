@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fc76079-cf57-42a0-9a6b-77331bdbfdf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/mapper/EnderecoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/integration/ViaCep/ViaCepIntegrationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/integration/ViaCep/client/ViaCepClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/integration/ViaCep/dto/ViaCepResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/service/endereco/EnderecoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/controller/categorias/CategoriaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/controller/produtos/ProdutoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/categorias/Categoria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/categorias/dto/CategoriaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/categorias/mapper/CategoriaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/categorias/repository/CategoriaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/produtos/Produto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/produtos/dto/ProdutoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/produtos/mapper/ProdutoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/protudos/produtos/repository/ProdutoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/service/produtos/ProdutoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/service/produtos/categorias/CategoriaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/service/produtos/produtos/ProdutoServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/AppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/controller/endereco/EnderecoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/controller/endereco/EnderecoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/controller/usuario/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/controller/usuario/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/dto/EnderecoExibicaoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/dto/EnderecoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/dto/mapper/EnderecoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/repository/EnderecoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/repository/EnderecoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/usuario/dto/mapper/UsuarioMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/domain/usuario/mapper/UsuarioMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/service/usuario/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/service/usuario/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ragnar/app/service/usuario/configuration/security/SecurityConfiguracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ragnar/app/service/usuario/configuration/security/SecurityConfiguracao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -57,22 +59,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.AppApplication.executor": "Debug",
-    "Maven.app [clean,install,-DskipTests].executor": "Run",
-    "Maven.app [clean].executor": "Run",
-    "Maven.app [install].executor": "Run",
-    "Maven.app [mvn,clean,install,-DskipTests].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/gabsm/OneDrive/Documentos/ragnar-outlet/Ragnar-Backend/src/main/java/ragnar/app/integration",
-    "settings.editor.selected.configurable": "terminal"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AppApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.app [clean,install,-DskipTests].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.app [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.app [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.app [mvn,clean,install,-DskipTests].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabsm/OneDrive/Documentos/ragnar-outlet/Ragnar-Backend/src/main/java/ragnar/app/integration&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ragnar.app.domain.protudos.categorias.dto" />
+      <recent name="ragnar.app.service.produtos" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabsm\OneDrive\Documentos\ragnar-outlet\Ragnar-Backend\src\main\java\ragnar\app\integration" />
       <recent name="C:\Users\gabsm\OneDrive\Documentos\ragnar-outlet\Ragnar-Backend\src\main\java\ragnar\app\service\usuario" />
@@ -199,6 +206,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/ragnar/app/domain/endereco/Endereco.java</url>
           <line>14</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ragnar/app/service/produtos/produtos/ProdutoServiceImp.java</url>
+          <line>21</line>
+          <properties class="ragnar.app.service.produtos.produtos.ProdutoServiceImp" method="criarProduto">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

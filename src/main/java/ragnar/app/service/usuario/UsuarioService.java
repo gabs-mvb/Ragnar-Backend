@@ -76,6 +76,19 @@ public class UsuarioService {
         return UsuarioMapper.toDTO(usuarioRepository.save(novoUsuario));
     }
 
+    public UsuarioDTO cadastrarAdministrador(UsuarioCriacaoDTO usuario) {
+        if (this.usuarioRepository.existsByEmail(usuario.getEmail())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Usuario já cadastrado");
+        }
+        Usuario novoUsuario = UsuarioMapper.toEntity(usuario);
+
+        String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+        novoUsuario.setSenha(senhaCriptografada);
+        novoUsuario.setStatusUsuario(StatusEnum.ATIVO);
+        novoUsuario.setPermissao(PermissaoEnum.ADMINISTRADOR);
+        return UsuarioMapper.toDTO(usuarioRepository.save(novoUsuario));
+    }
+
     public List<UsuarioDTO> listarTodosOsUsuarios() {
         List<Usuario> usuarios = usuarioRepository.findAll();
 
@@ -136,13 +149,14 @@ public class UsuarioService {
         usuarioRepository.save(usuarioAhAtivar);
     }
 
-    public Usuario permissionarUsuario(int idUsuario, PermissaoEnum permissao) {
+    public Usuario permissionarUsuario(int idUsuario, String permissao) {
+        PermissaoEnum permissaoEnum = PermissaoEnum.valueOf(permissao.toUpperCase());
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não cadastrado")
                 );
 
-        switch (permissao) {
+        switch (permissaoEnum) {
             case ADMINISTRADOR:
                 usuario.setPermissao(PermissaoEnum.ADMINISTRADOR);
                 break;
