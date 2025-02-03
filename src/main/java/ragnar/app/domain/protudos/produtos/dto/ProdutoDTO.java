@@ -21,9 +21,10 @@ public class ProdutoDTO {
     private String descricao;
     private String tamanho;
     private BigDecimal preco;
-    private BigDecimal desconto;
+    private Integer desconto;
     private Integer estoque;
     private String imagemId;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
+    private String marca;
 }

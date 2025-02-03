@@ -18,6 +18,7 @@ public class ProdutoMapper {
                 .imagemId(produto.getImagemId())
                 .dataCriacao(produto.getDataCriacao())
                 .dataAtualizacao(produto.getDataAtualizacao())
+                .marca(produto.getMarca())
                 .build();
     }
 
@@ -34,6 +35,7 @@ public class ProdutoMapper {
                 .imagemId(produto.getImagemId())
                 .dataCriacao(produto.getDataCriacao())
                 .dataAtualizacao(produto.getDataAtualizacao())
+                .marca(produto.getMarca())
                 .build();
     }
 }

@@ -36,14 +36,17 @@ public class Produto {
     @Column(name = "preco", nullable = false, precision = 10, scale = 2)
     private BigDecimal preco;
 
-    @Column(name = "desconto", precision = 5, scale = 2)
-    private BigDecimal desconto;
+    @Column(name = "desconto")
+    private Integer desconto;
 
     @Column(name = "estoque", nullable = false)
     private Integer estoque;
 
     @Column(name = "imagem_id")
     private String imagemId;
+
+    @Column(name = "marca")
+    private String marca;
 
     @Column(name = "data_criacao", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false)
     private LocalDateTime dataCriacao;

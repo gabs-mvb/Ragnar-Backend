@@ -5,8 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ragnar.app.domain.endereco.Endereco;
-import ragnar.app.domain.usuario.Usuario;
-import ragnar.app.utils.StringUtils;
+import ragnar.app.utils.Utils;
 
 import java.util.List;
 
@@ -21,6 +20,6 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
     List<Endereco> findByCepAndNumero(String cep, int numero);
 
     private String formataCEP(String cep){
-        return StringUtils.formataCep(cep);
+        return Utils.formataCep(cep);
     }
 }

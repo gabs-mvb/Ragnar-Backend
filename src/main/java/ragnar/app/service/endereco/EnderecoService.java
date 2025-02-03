@@ -23,6 +23,7 @@ public class EnderecoService {
     private final EnderecoRepository enderecoRepository;
     private final UsuarioRepository usuarioRepository;
     private final ViaCepClient viaCepClient;
+
     public Endereco getEnderecoPeloCep(String cep) {
         ViaCepResponse response = this.viaCepClient.getCEP(cep);
         if(response.getCep()==null){

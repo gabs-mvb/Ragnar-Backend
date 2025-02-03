@@ -1,5 +1,7 @@
 package ragnar.app.service.produtos.produtos;
 
+import static ragnar.app.utils.Utils.atualizarCampo;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ragnar.app.domain.protudos.categorias.mapper.CategoriaMapper;
@@ -8,9 +10,13 @@ import ragnar.app.domain.protudos.produtos.dto.ProdutoDTO;
 import ragnar.app.domain.protudos.produtos.mapper.ProdutoMapper;
 import ragnar.app.domain.protudos.produtos.repository.ProdutoRepository;
 import ragnar.app.service.produtos.ProdutoService;
+import ragnar.app.utils.exceptions.ProdutoNaoEncontradoException;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +27,8 @@ public class ProdutoServiceImp implements ProdutoService {
     @Override
     public Produto criarProduto(ProdutoDTO produto) {
         Produto entity = ProdutoMapper.toEntity(produto);
+        entity.setDataCriacao(LocalDateTime.now());
+        entity.setDataAtualizacao(LocalDateTime.now());
         produtoRepository.save(entity);
         return entity;
     }
@@ -37,31 +45,16 @@ public class ProdutoServiceImp implements ProdutoService {
 
     @Override
     public Produto atualizarProduto(Integer id, ProdutoDTO produtoAtualizado) {
-        Produto produtoExistente = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Produto produtoExistente = produtoRepository.findById(id)
+                  .orElseThrow(() -> new ProdutoNaoEncontradoException("Produto com ID " + id + " não encontrado."));
 
-        if (produtoAtualizado.getNome() != null && !produtoAtualizado.getNome().isEmpty()) {
-            produtoExistente.setNome(produtoAtualizado.getNome());
-        }
-
-        if (produtoAtualizado.getDescricao() != null && !produtoAtualizado.getDescricao().isEmpty()) {
-            produtoExistente.setDescricao(produtoAtualizado.getDescricao());
-        }
-
-        if (produtoAtualizado.getPreco() != null) {
-            produtoExistente.setPreco(produtoAtualizado.getPreco());
-        }
-
-        if (produtoAtualizado.getEstoque() != null) {
-            produtoExistente.setEstoque(produtoAtualizado.getEstoque());
-        }
-
-        if (produtoAtualizado.getCategoria() != null) {
-            produtoExistente.setCategoria(CategoriaMapper.toEntity(produtoAtualizado.getCategoria()));
-        }
-
-        if (produtoAtualizado.getDataAtualizacao() != null) {
-            produtoExistente.setDataAtualizacao(produtoAtualizado.getDataAtualizacao());
-        }
+        atualizarCampo(produtoAtualizado.getNome(), produtoExistente::setNome);
+        atualizarCampo(produtoAtualizado.getDescricao(), produtoExistente::setDescricao);
+        atualizarCampo(produtoAtualizado.getPreco(), produtoExistente::setPreco);
+        atualizarCampo(produtoAtualizado.getEstoque(), produtoExistente::setEstoque);
+        atualizarCampo(produtoAtualizado.getCategoria(), categoriaDTO ->
+                  produtoExistente.setCategoria(CategoriaMapper.toEntity(categoriaDTO)));
+        atualizarCampo(produtoAtualizado.getDataAtualizacao(), produtoExistente::setDataAtualizacao);
 
         return produtoRepository.save(produtoExistente);
     }
@@ -82,10 +75,10 @@ public class ProdutoServiceImp implements ProdutoService {
     }
 
     @Override
-    public Produto aplicarDesconto(Integer id, Double desconto) {
+    public Produto aplicarDesconto(Integer id, Integer desconto) {
         return produtoRepository.findById(id)
                 .map(produto -> {
-                    produto.setDesconto(BigDecimal.valueOf(desconto));
+                    produto.setDesconto(desconto);
                     return produtoRepository.save(produto);
                 }).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
     }

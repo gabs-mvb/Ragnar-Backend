@@ -96,7 +96,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/aplicarDesconto/{id}")
-    public ResponseEntity<ProdutoDTO> aplicarDesconto(@PathVariable Integer id, @RequestParam Double desconto) {
+    public ResponseEntity<ProdutoDTO> aplicarDesconto(@PathVariable Integer id, @RequestParam Integer desconto) {
         Produto produtoAtualizado = produtoService.aplicarDesconto(id, desconto);
         return ResponseEntity.ok(ProdutoMapper.toDTO(produtoAtualizado));
     }

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ragnar.app.domain.endereco.Endereco;
+import ragnar.app.domain.endereco.dto.EnderecoCadastroDTO;
 import ragnar.app.domain.endereco.dto.EnderecoDTO;
 import ragnar.app.domain.endereco.mapper.EnderecoMapper;
 import ragnar.app.service.endereco.EnderecoService;
@@ -31,7 +32,7 @@ public class EnderecoController {
     }
 
     @PostMapping("/{idUsuario}")
-    public ResponseEntity<EnderecoDTO> cadastrarEndereco(@PathVariable int idUsuario, @RequestBody EnderecoDTO enderecoDTO) {
+    public ResponseEntity<EnderecoDTO> cadastrarEndereco(@PathVariable int idUsuario, @RequestBody EnderecoCadastroDTO enderecoDTO) {
         Endereco enderecoCadastrado = enderecoService.cadastrarEndereco(
                 enderecoDTO.getCep(),
                 enderecoDTO.getComplemento(),

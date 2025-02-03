@@ -20,7 +20,7 @@ public interface ProdutoService {
 
     Produto atualizarEstoque(Integer id, int novaQuantidade);
 
-    Produto aplicarDesconto(Integer id, Double desconto);
+    Produto aplicarDesconto(Integer id, Integer desconto);
 
     List<Produto> buscarProdutosPorCategoria(Integer categoriaId);
 
